@@ -1,0 +1,61 @@
+{
+  "artifact_type": "continuation_record",
+  "framework": "Babylon Continuation",
+  "decision": "PASS",
+  "decision_precedence": ["HALT", "INCOMPLETE", "PASS"],
+  "execution_boundary": "language-driven continuation evaluation",
+  "evaluation_scope": {
+    "description": "artifact sealing and integrity verification only",
+    "replay_required_where_declared": true,
+    "replay_verified_in_this_instance": false
+  },
+  "basis_for_decision": {
+    "scope_bounded": true,
+    "satisfied_conditions": [
+      "continuation_model_defined_and_ordered",
+      "required_artifacts_present",
+      "cryptographic_integrity_established",
+      "manifest_verification_passed",
+      "decision_receipt_emitted",
+      "refusal_first_structure_preserved"
+    ],
+    "interpretation": "admissible continuation within artifact-sealing scope only"
+  },
+  "verified_conditions": [
+    "artifact_present",
+    "source_present",
+    "artifact_hash_matches_live_bytes",
+    "source_hash_matches_live_bytes",
+    "run_bundle_present",
+    "refusal_record_present",
+    "manifest_verification_passed"
+  ],
+  "not_verified": [
+    "deterministic_replay",
+    "cross_host_reproduction",
+    "execution_equivalence_under_replay"
+  ],
+  "artifacts": {
+    "paper_pdf": "paper.pdf",
+    "paper_source": "paper.tex",
+    "run_bundle": "run_bundle.json",
+    "refusal_record": "refusal_record.json",
+    "manifest": "SHA256_MANIFEST.txt",
+    "manifest_receipt": "SHA256_MANIFEST.txt.sha256",
+    "decision_receipt": "decision.json.sha256",
+    "run_bundle_receipt": "run_bundle.json.sha256",
+    "refusal_record_receipt": "refusal_record.json.sha256"
+  },
+  "current_state_address": {
+    "object": "Babylon Continuation",
+    "posture": "PASS",
+    "claim_strength": "artifact_sealed_not_replay_certified",
+    "role": "language-execution specialization of continuation control",
+    "status": "sealed_artifact_suitable_for_submission"
+  },
+  "continuation_interpretation": {
+    "pass_scope": "artifact sealing and integrity verification",
+    "continuation_beyond_scope": "not established"
+  },
+  "formal_classification": "SEALED_NOT_REPLAY_CERTIFIED"
+}

@@ -6,11 +6,11 @@
   "reason": "artifact_present_hash_bound_manifest_verified",
   "artifact": {
     "filename": "paper.pdf",
-    "sha256": "c913b1bfb0f250782cbba3da158cef53f39c1cc316a4cef3e96ad638d32d4c0e"
+    "sha256": "75b406ae9b0d4e816947097fb1026f086de5af34029875e877e28d18e4e6c894"
   },
   "source": {
     "filename": "paper.tex",
-    "sha256": "e1c4beb01ea9f009ae30a6dc41e01307898f1f581e240749d489f9c3a5483200"
+    "sha256": "bfef1af357a18c507b65d16f616de0ff18b781fd26a898726f4e8a231ff01755"
   },
   "run_bundle": {
     "filename": "run_bundle.json",
@@ -35,7 +35,7 @@
     "execution_equivalence_under_replay"
   ],
   "continuation_interpretation": "PASS is limited to artifact sealing integrity only",
-  "timestamp_utc": "2026-03-29T07:19:19Z",
+  "timestamp_utc": "2026-03-29T09:31:45Z",
   "author": "J. M. Bookbinder",
   "organization": "Witness Grade Analytics"
 }

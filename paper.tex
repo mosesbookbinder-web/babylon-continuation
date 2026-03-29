@@ -21,7 +21,7 @@ All claims in this paper are contingent on artifact verification. No claim is au
 
 Modern systems increasingly rely on language as an execution surface for initiating, modifying, and validating process state. This paper introduces a deterministic continuation control framework for language-driven systems, enforcing a decision model with precedence HALT > INCOMPLETE > PASS.
 
-The method requires replay-verifiable artifacts, cryptographic integrity checks, and explicit refusal records when continuation cannot be justified. Language is treated as telemetry rather than narrative, and execution is permitted only when structural admissibility is preserved under deterministic replay.
+The method requires replay-verifiable artifacts, cryptographic integrity checks, and explicit refusal records when continuation cannot be justified. Language is treated as telemetry rather than narrative, and execution is permitted only when structural admissibility is preserved under the declared evaluation scope, with deterministic replay required where verified.
 \end{abstract}
 
 \section{Introduction}
@@ -41,12 +41,12 @@ The system evaluates continuation under strict precedence:
 \begin{itemize}
 \item HALT: Structural violation or missing invariant prevents continuation.
 \item INCOMPLETE: Required evidence or artifacts are missing.
-\item PASS: All constraints satisfied under deterministic replay.
+\item PASS: All constraints satisfied within the declared evaluation scope.
 \end{itemize}
 
 \section{Deterministic Replay Requirement}
 
-All admissible executions must be reproducible under identical inputs. The system enforces:
+Admissible execution under replay requires reproducibility under identical inputs. This condition is enforced when replay certification is within the declared evaluation scope. The system enforces:
 
 \begin{itemize}
 \item Artifact hashing (SHA-256)
@@ -84,6 +84,56 @@ This prevents semantic drift and ensures that meaning is tied to verifiable stru
 
 The Babylon Continuation framework establishes a deterministic, artifact-first method for governing execution in language-driven systems. By enforcing replay-verifiable evidence and refusal-first control, the system ensures that continuation is granted only when structurally admissible.
 
-Future work includes formal specification of run bundle schemas and integration into distributed execution environments.
+Deterministic replay, cross-host reproduction, and execution equivalence remain unverified conditions in the current execution instance.
 
 \end{document}
+
+\section{Bound Run Artifact (Sealed Instance)}
+
+This document is bound to a specific run instance under the continuation-control system.
+
+\subsection{Artifact Binding}
+
+\begin{itemize}
+\item Artifact: \texttt{paper.pdf}
+\item Artifact SHA256: \texttt{c913b1bfb0f250782cbba3da158cef53f39c1cc316a4cef3e96ad638d32d4c0e}
+\item Source: \texttt{paper.tex}
+\item Source SHA256: \texttt{e1c4beb01ea9f009ae30a6dc41e01307898f1f581e240749d489f9c3a5483200}
+\item Run Bundle: \texttt{run_bundle.json}
+\item Run Bundle SHA256: \texttt{8144ba79122d28b4efb95d69ec205c9f1a1d5ef73c550b105c667fd7d132e9bc}
+\item Decision Receipt SHA256: \texttt{87b60f9572c30bf546988d8ac375276ff16088219dc30f68e76cd54fbeeebdbe}
+\end{itemize}
+
+\subsection{Decision Scope}
+
+This artifact is sealed under the following continuation conditions:
+
+\begin{itemize}
+\item Decision: PASS
+\item Scope: artifact sealing
+\item Claim Strength: artifact sealed, not replay certified
+\end{itemize}
+
+\subsection{Observer-Address Condition}
+
+Admissibility is not global. This artifact is:
+
+\begin{itemize}
+\item admissible for sealing under local observer address
+\item not yet admissible for cross-address replay
+\end{itemize}
+
+\begin{quote}
+An artifact counts insofar as it supports a declared function at a declared observer address.
+\end{quote}
+
+\subsection{Open Conditions}
+
+The following conditions remain unresolved:
+
+\begin{itemize}
+\item deterministic replay across hosts
+\item execution equivalence under replay
+\item cross-address admissibility
+\end{itemize}
+
