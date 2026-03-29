@@ -4,14 +4,17 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
-\usepackage{amsmath,amssymb}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{longtable}
 \usepackage{hyperref}
 \usepackage{microtype}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,positioning,shapes.geometric}
 
 \title{The Babylon Continuation: Deterministic Replay and Refusal-First Execution in Language-Driven Systems}
-\author{J. M. Bookbinder \\ Witness Grade Analytics (WGA) \\ Atlanta, Georgia, USA}
+\author{J. M. Bookbinder\\Witness Grade Analytics (WGA)\\Atlanta, Georgia, USA}
 \date{March 2026}
 
 \begin{document}
@@ -25,7 +28,7 @@ Modern systems increasingly rely on language as an execution surface for initiat
 
 \section{Introduction}
 
-Language has become an operational interface for modern systems, including software pipelines, financial systems, and artificial intelligence workflows. However, current systems lack a deterministic method for verifying whether execution should continue once language has altered system state. This paper presents a continuation control architecture in which language is treated as structured signal input, and system execution is governed by replay-verifiable evidence rather than narrative interpretation.
+Language has become an operational interface for modern systems, including software pipelines, financial systems, and artificial intelligence workflows. However, current systems lack a deterministic method for verifying whether execution should continue once language has altered system state. This paper presents a continuation control architecture in which language is treated as structured signal input, and system execution is governed by replay-verifiable evidence rather than narrative interpretation \cite{bookbinder2026babylon}.
 
 \section{Continuation Decision Model}
 
@@ -46,7 +49,7 @@ The system evaluates continuation under strict precedence:
 Admissible execution under replay requires reproducibility under identical inputs. This condition is enforced when replay certification is within the declared evaluation scope. The system enforces:
 
 \begin{itemize}
-    \item Artifact hashing (SHA-256)
+    \item Artifact hashing (SHA-256) \cite{fips1804}
     \item Run bundle integrity
     \item Replay equivalence
 \end{itemize}
@@ -54,7 +57,7 @@ Admissible execution under replay requires reproducibility under identical input
 Any mismatch between original and replayed execution results in immediate HALT.
 
 \section{Refusal-First Execution Control}
-This experiment constitutes an independent evaluation unit with outcome HALT and does not modify the artifact-seal decision of the parent submission.
+
 If continuation cannot be justified, the system must emit a refusal record rather than proceed.
 
 \begin{itemize}
@@ -81,7 +84,6 @@ This prevents semantic drift and ensures that meaning is tied to verifiable stru
 \label{sec:cross_system_experiment}
 
 \subsection{Objective}
-\label{sec:objective}
 
 This experiment evaluates whether contemporary large language model systems preserve structural admissibility under controlled input conditions. Specifically, we test whether two independent systems, Claude and Gemini, produce outputs that satisfy:
 
@@ -95,12 +97,11 @@ This experiment evaluates whether contemporary large language model systems pres
 The experiment determines whether outputs qualify as DIRECT witnesses, or degrade into WRAPPED or DRIFT classes under the continuation control framework.
 
 \subsection{Experimental Setup}
-\label{sec:setup}
 
 \textbf{Systems Evaluated}
 \begin{itemize}
-    \item System A: Claude (Anthropic)
-    \item System B: Gemini (Google)
+    \item System A: Claude (Anthropic) \cite{anthropic_claude}
+    \item System B: Gemini (Google) \cite{google_gemini}
 \end{itemize}
 
 \textbf{Input Construction}
@@ -124,7 +125,6 @@ Each system was provided with identical structured prompts containing:
 \end{enumerate}
 
 \subsection{Evaluation Criteria}
-\label{sec:criteria}
 
 Each output is evaluated against four gates:
 
@@ -136,7 +136,6 @@ Each output is evaluated against four gates:
 \end{itemize}
 
 \subsection{Results}
-\label{sec:results}
 
 \begin{table}[h]
 \centering
@@ -153,7 +152,6 @@ Operator Continuity & Partial & Weak \\ \hline
 \end{table}
 
 \subsection{Witness Classification}
-\label{sec:witness_classification}
 
 Witness classes are defined as:
 
@@ -173,7 +171,6 @@ Witness classes are defined as:
 No system produced a DIRECT witness.
 
 \subsection{Decision Outcome}
-\label{sec:decision}
 
 \begin{verbatim}
 {
@@ -184,14 +181,11 @@ No system produced a DIRECT witness.
 \end{verbatim}
 
 \subsection{Interpretation}
-\label{sec:interpretation}
 
 Both systems exhibit transformation behavior of the form
-
 \[
 O = f_{\mathrm{LLM}}(P)
 \]
-
 where $f_{\mathrm{LLM}}$ is non-deterministic and does not guarantee constraint preservation.
 
 Thus, large language model systems function as probabilistic transformation operators rather than deterministic execution systems.
@@ -248,7 +242,6 @@ Thus, large language model systems function as probabilistic transformation oper
 \end{figure}
 
 \subsection{Implications for Continuation Control}
-\label{sec:implications}
 
 Because neither system satisfies admissibility requirements:
 
@@ -259,7 +252,6 @@ Because neither system satisfies admissibility requirements:
 \end{itemize}
 
 \subsection{Extension}
-\label{sec:extension}
 
 Future work includes:
 
@@ -270,39 +262,32 @@ Future work includes:
 \end{itemize}
 
 \subsection{Summary}
-\label{sec:summary}
 
 Neither evaluated system preserves structural admissibility. Both fail deterministic replay and operator continuity requirements.
 
 \subsection{Formal Specification}
-\label{sec:formal_specification}
 
 Let $P$ denote the prompt, $E$ the system, and $t$ the declared execution state. Outputs are
-
 \[
 O_i = E(P,t)_i
 \]
 
 Deterministic replay requires
-
 \[
 \forall i,j,\ \delta(O_i,O_j)=0
 \]
 
 Replay failure is defined by
-
 \[
 \exists i,j:\ \delta(O_i,O_j) > \epsilon
 \]
 
 with
-
 \[
 \epsilon = 0
 \]
 
 Replay failure alone is sufficient to exclude the DIRECT witness class. Let $C(P,O)$ denote preservation of declared constraint structure. Then witness classification is defined as
-
 \[
 \mathrm{DIRECT} \iff
 \left[
@@ -331,7 +316,6 @@ C(P,O)=0
 \]
 
 \subsection{The \texttt{run\_bundle} Artifact}
-\label{sec:run_bundle_artifact}
 
 \begin{table}[h]
 \centering
@@ -369,18 +353,15 @@ A minimal \texttt{run\_bundle} for this experiment should include at least the f
 The purpose of the \texttt{run\_bundle} is not descriptive convenience but replay accountability. Without a preserved bundle, output claims from the evaluated systems cannot be promoted to admissible evidence.
 
 \subsection{Refusal-First Execution Control}
-\label{sec:refusal_first_execution_control}
 
 In the Bookbinder framework, failure of operator continuity prohibits permissive continuation. Let $G_4$ denote the Operator Continuity gate. If $G_4$ fails, or returns a partial state insufficient to establish one-to-one preservation between input instruction and output action, the system must emit a refusal record and reduce the decision according to ordered precedence
-
 \[
 \mathrm{HALT} > \mathrm{INCOMPLETE} > \mathrm{PASS}
 \]
 
 The governing rule is therefore
-
 \[
-G_4 \in \{\mathrm{FAIL}, \mathrm{PARTIAL}, \mathrm{WEAK}\}
+G_4 \in \{\mathrm{FAIL},\mathrm{PARTIAL},\mathrm{WEAK}\}
 \Longrightarrow
 \text{Refusal Record Required}
 \]
@@ -388,17 +369,141 @@ G_4 \in \{\mathrm{FAIL}, \mathrm{PARTIAL}, \mathrm{WEAK}\}
 Operationally, the reason is straightforward: if the mapping from prompt to output cannot be verified as structurally preserved, then the process admits out-of-band transformation and loses replay authority. In such cases the correct system action is not explanation but refusal.
 
 Formally,
-
 \[
 \neg \mathrm{VerifyOperatorContinuity}(P,O)
 \Longrightarrow
-\mathrm{Decision} \in \{\mathrm{HALT}, \mathrm{INCOMPLETE}\}
+\mathrm{Decision} \in \{\mathrm{HALT},\mathrm{INCOMPLETE}\}
 \]
-
 with HALT taking precedence whenever the failure is sufficient to invalidate admissible continuation within the declared execution scope.
+
+\appendix
+
+\section{Witness Kernel Reference Implementation}
+\label{app:witness_kernel}
+
+This appendix provides a minimal reference implementation for artifact sealing, manifest verification, and refusal-first continuation checks.
+
+\subsection{Oracle Drop Shell Harness}
+
+\begin{verbatim}
+#!/usr/bin/env bash
+set -euo pipefail
+
+ARTIFACT="${1:-paper.pdf}"
+SOURCE="${2:-paper.tex}"
+RUN_BUNDLE="run_bundle.json"
+REFUSAL="refusal_record.json"
+MANIFEST="SHA256_MANIFEST.txt"
+
+if [[ ! -f "$ARTIFACT" ]]; then
+  echo '{"decision":"HALT","reason":"missing_artifact"}'
+  exit 1
+fi
+
+if [[ ! -f "$SOURCE" ]]; then
+  echo '{"decision":"INCOMPLETE","reason":"missing_source"}'
+  exit 0
+fi
+
+shasum -a 256 "$ARTIFACT" "$SOURCE" "$RUN_BUNDLE" "$REFUSAL" > "$MANIFEST"
+shasum -a 256 "$MANIFEST" > "${MANIFEST}.sha256"
+shasum -a 256 "$RUN_BUNDLE" > "${RUN_BUNDLE}.sha256"
+shasum -a 256 "$REFUSAL" > "${REFUSAL}.sha256"
+
+echo '{"decision":"PASS","scope":"artifact_seal","reason":"artifact_present_hash_bound_manifest_verified"}'
+\end{verbatim}
+
+\subsection{Python Verifier}
+
+\begin{verbatim}
+#!/usr/bin/env python3
+import hashlib
+import json
+from pathlib import Path
+import sys
+
+ROOT = Path(".")
+
+def sha256_file(path: Path) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as f:
+        for chunk in iter(lambda: f.read(65536), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+def fail(reason: str, code: int = 1):
+    print(json.dumps({
+        "verification": "HALT",
+        "reason": reason,
+        "promotion": "none"
+    }, indent=2))
+    sys.exit(code)
+
+def main():
+    decision_path = ROOT / "decision.json"
+    manifest_path = ROOT / "SHA256_MANIFEST.txt"
+
+    if not decision_path.exists():
+        fail("missing_decision_json")
+
+    if not manifest_path.exists():
+        fail("missing_manifest")
+
+    decision = json.loads(decision_path.read_text())
+
+    manifest_targets = set()
+    for line in manifest_path.read_text().splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        parts = line.split()
+        if len(parts) < 2:
+            fail("manifest_malformed")
+        claimed_hash = parts[0]
+        claimed_target = Path(parts[-1]).name
+        target_path = ROOT / claimed_target
+        if not target_path.exists():
+            fail(f"manifest_missing_target:{claimed_target}")
+        live_hash = sha256_file(target_path)
+        if claimed_hash != live_hash:
+            fail(f"manifest_hash_mismatch:{claimed_target}")
+        manifest_targets.add(claimed_target)
+
+    required_manifest_targets = {"paper.pdf", "paper.tex", "run_bundle.json", "refusal_record.json"}
+    for needed in required_manifest_targets:
+        if needed not in manifest_targets:
+            fail(f"manifest_missing_target:{needed}")
+
+    result = {
+        "verification": "PASS",
+        "scope": "artifact_seal_only",
+        "promotion": "none",
+        "formal_classification": "SEALED_NOT_REPLAY_CERTIFIED",
+        "verified_checks": decision.get("verified_checks", []),
+        "not_verified": decision.get("not_verified", [])
+    }
+    print(json.dumps(result, indent=2))
+
+if __name__ == "__main__":
+    main()
+\end{verbatim}
+
+\subsection{Reference Decision Logic}
+
+The reference kernel separates artifact sealing from replay certification:
+
+\begin{enumerate}
+    \item If the artifact is missing, return HALT.
+    \item If required supporting evidence is missing, return INCOMPLETE.
+    \item If artifacts are present and hash-bound, return PASS at artifact-seal scope only.
+    \item Replay certification must be established separately and may not be inferred from artifact sealing alone.
+\end{enumerate}
 
 \section{Conclusion}
 
 The Babylon Continuation framework establishes a deterministic, artifact-first method for governing execution in language-driven systems. By enforcing replay-verifiable evidence and refusal-first control, the system ensures that continuation is granted only when structurally admissible within the declared evaluation scope. Deterministic replay, cross-host reproduction, and execution equivalence remain unverified conditions in the current execution instance.
+
+\bibliographystyle{plain}
+\bibliography{references}
 
 \end{document}

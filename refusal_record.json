@@ -1,18 +1,19 @@
 {
   "record_type": "refusal_record",
-  "title": "The Babylon Continuation",
+  "title": "The Babylon Continuation: Deterministic Replay and Refusal-First Execution in Language-Driven Systems",
   "status": "NO_REFUSAL_TRIGGERED",
   "decision_model": "HALT > INCOMPLETE > PASS",
   "refusal_required": false,
   "reason": "No blocking condition was encountered during artifact sealing. This record is attached to preserve refusal-first structure even when continuation is permitted.",
   "if_triggered_would_require": [
-    "missing artifact",
-    "missing hash",
-    "manifest verification failure",
-    "replay mismatch",
-    "source-artifact linkage failure"
+    "missing_artifact",
+    "missing_source",
+    "missing_hash",
+    "manifest_verification_failure",
+    "replay_mismatch",
+    "source_artifact_linkage_failure"
   ],
-  "timestamp_utc": "2026-03-29T07:16:44Z",
+  "timestamp_utc": "REPLACE_WITH_UTC_TIMESTAMP",
   "author": "J. M. Bookbinder",
   "organization": "Witness Grade Analytics"
 }

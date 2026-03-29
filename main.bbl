@@ -1,0 +1,28 @@
+\begin{thebibliography}{1}
+
+\bibitem{anthropic_claude}
+{Anthropic}.
+\newblock Claude, 2026.
+\newblock Large language model system referenced in the cross-system
+  admissibility experiment.
+
+\bibitem{bookbinder2026babylon}
+J.~M. Bookbinder.
+\newblock The babylon continuation: Deterministic replay and refusal-first
+  execution in language-driven systems, March 2026.
+\newblock Working paper, Witness Grade Analytics (WGA), Atlanta, Georgia, USA.
+
+\bibitem{google_gemini}
+{Google}.
+\newblock Gemini, 2026.
+\newblock Large language model system referenced in the cross-system
+  admissibility experiment.
+
+\bibitem{fips1804}
+{National Institute of Standards and Technology}.
+\newblock Secure hash standard ({SHS}).
+\newblock {\em Federal Information Processing Standards Publication 180-4},
+  2015.
+\newblock U.S. Department of Commerce.
+
+\end{thebibliography}

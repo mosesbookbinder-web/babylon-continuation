@@ -6,19 +6,19 @@
   "reason": "artifact_present_hash_bound_manifest_verified",
   "artifact": {
     "filename": "paper.pdf",
-    "sha256": "75b406ae9b0d4e816947097fb1026f086de5af34029875e877e28d18e4e6c894"
+    "sha256": "81e732d93e372438b963579078e93553a3678f99b3f71b4c01e8f66387a4e56c"
   },
   "source": {
     "filename": "paper.tex",
-    "sha256": "bfef1af357a18c507b65d16f616de0ff18b781fd26a898726f4e8a231ff01755"
+    "sha256": "073fea2567f94a9258842a20ce3531066112a4717731aa4dc39abaaa936d0b4d"
   },
   "run_bundle": {
     "filename": "run_bundle.json",
-    "sha256": "8144ba79122d28b4efb95d69ec205c9f1a1d5ef73c550b105c667fd7d132e9bc"
+    "sha256": "f1b2ce4dca9eb483f2c847af1ae8b15b0f88ad2ef5ae7f856fa23ad5fe1cfabb"
   },
   "refusal_record": {
     "filename": "refusal_record.json",
-    "sha256": "325c1bfd0921452037ddb74c2f8823ddc63f90049646d1efb6dacee58d822c8e"
+    "sha256": "1cfed7cfdd6de751b8b838299e8d4d12aa5b5734c511e4a44ac9ea840cbfd176"
   },
   "verified_checks": [
     "artifact_present",
@@ -35,7 +35,7 @@
     "execution_equivalence_under_replay"
   ],
   "continuation_interpretation": "PASS is limited to artifact sealing integrity only",
-  "timestamp_utc": "2026-03-29T09:31:45Z",
+  "timestamp_utc": "2026-03-29T10:47:06Z",
   "author": "J. M. Bookbinder",
   "organization": "Witness Grade Analytics"
 }

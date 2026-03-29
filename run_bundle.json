@@ -1,11 +1,28 @@
 {
-  "run_id": "RB-20260329T071419Z",
-  "timestamp_utc": "20260329T071419Z",
-  "artifact": "paper.pdf",
-  "artifact_sha256": "75b406ae9b0d4e816947097fb1026f086de5af34029875e877e28d18e4e6c894",
-  "source": "paper.tex",
-  "source_sha256": "bfef1af357a18c507b65d16f616de0ff18b781fd26a898726f4e8a231ff01755",
-  "title": "The Babylon Continuation",
+  "run_id": "RB-20260329T104706Z",
+  "timestamp_utc": "2026-03-29T10:47:06Z",
+  "title": "The Babylon Continuation: Deterministic Replay and Refusal-First Execution in Language-Driven Systems",
   "author": "J. M. Bookbinder",
-  "decision_precedence": "HALT > INCOMPLETE > PASS"
+  "organization": "Witness Grade Analytics",
+  "artifact": "paper.pdf",
+  "artifact_sha256": "81e732d93e372438b963579078e93553a3678f99b3f71b4c01e8f66387a4e56c",
+  "source": "paper.tex",
+  "source_sha256": "073fea2567f94a9258842a20ce3531066112a4717731aa4dc39abaaa936d0b4d",
+  "references": "references.bib",
+  "references_sha256": "3ebd0b488a1465a1a9f74345579c9c39c4b609048ca06652caa8569a805f1bc1",
+  "decision_model": "HALT > INCOMPLETE > PASS",
+  "decision_scope": "artifact_seal",
+  "formal_classification": "SEALED_NOT_REPLAY_CERTIFIED",
+  "verified_checks": [
+    "artifact_present",
+    "source_present",
+    "artifact_hash_matches_live_bytes",
+    "source_hash_matches_live_bytes",
+    "manifest_verification_passed"
+  ],
+  "not_verified": [
+    "deterministic_replay",
+    "cross_host_reproduction",
+    "execution_equivalence_under_replay"
+  ]
 }
