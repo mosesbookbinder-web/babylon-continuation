@@ -17,6 +17,7 @@
       "decision.json",
       "decision.json.sha256",
       "decision_receipt.json",
+      "decision_receipt.json.sha256",
       "refusal_record.json",
       "refusal_record.json.sha256",
       "README.md",
