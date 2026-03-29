@@ -1,0 +1,11 @@
+{
+  "run_id": "RB-20260329T071419Z",
+  "timestamp_utc": "20260329T071419Z",
+  "artifact": "paper.pdf",
+  "artifact_sha256": "c913b1bfb0f250782cbba3da158cef53f39c1cc316a4cef3e96ad638d32d4c0e",
+  "source": "paper.tex",
+  "source_sha256": "e1c4beb01ea9f009ae30a6dc41e01307898f1f581e240749d489f9c3a5483200",
+  "title": "The Babylon Continuation",
+  "author": "J. M. Bookbinder",
+  "decision_precedence": "HALT > INCOMPLETE > PASS"
+}

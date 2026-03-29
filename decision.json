@@ -1,0 +1,9 @@
+{
+  "decision": "PASS",
+  "decision_precedence": "HALT > INCOMPLETE > PASS",
+  "reason": "artifact_present_and_hashed",
+  "artifact": "paper.pdf",
+  "artifact_sha256": "c913b1bfb0f250782cbba3da158cef53f39c1cc316a4cef3e96ad638d32d4c0e",
+  "run_bundle_sha256": "8144ba79122d28b4efb95d69ec205c9f1a1d5ef73c550b105c667fd7d132e9bc",
+  "timestamp_utc": "20260329T071419Z"
+}

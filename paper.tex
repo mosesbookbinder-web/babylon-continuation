@@ -1,0 +1,89 @@
+\documentclass[11pt]{article}
+
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+
+\title{The Babylon Continuation: Deterministic Replay and Refusal-First Execution in Language-Driven Systems}
+\author{J. M. Bookbinder\\
+Witness Grade Analytics (WGA)\\
+Atlanta, Georgia, USA}
+\date{March 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+All claims in this paper are contingent on artifact verification. No claim is authoritative without a corresponding run bundle and decision receipt.
+
+Modern systems increasingly rely on language as an execution surface for initiating, modifying, and validating process state. This paper introduces a deterministic continuation control framework for language-driven systems, enforcing a decision model with precedence HALT > INCOMPLETE > PASS.
+
+The method requires replay-verifiable artifacts, cryptographic integrity checks, and explicit refusal records when continuation cannot be justified. Language is treated as telemetry rather than narrative, and execution is permitted only when structural admissibility is preserved under deterministic replay.
+\end{abstract}
+
+\section{Introduction}
+
+Language has become an operational interface for modern systems, including software pipelines, financial systems, and artificial intelligence workflows. However, current systems lack a deterministic method for verifying whether execution should continue once language has altered system state.
+
+This paper presents a continuation control architecture in which language is treated as structured signal input, and system execution is governed by replay-verifiable evidence rather than narrative interpretation.
+
+\section{Continuation Decision Model}
+
+The system evaluates continuation under strict precedence:
+
+\begin{center}
+\textbf{HALT $>$ INCOMPLETE $>$ PASS}
+\end{center}
+
+\begin{itemize}
+\item HALT: Structural violation or missing invariant prevents continuation.
+\item INCOMPLETE: Required evidence or artifacts are missing.
+\item PASS: All constraints satisfied under deterministic replay.
+\end{itemize}
+
+\section{Deterministic Replay Requirement}
+
+All admissible executions must be reproducible under identical inputs. The system enforces:
+
+\begin{itemize}
+\item Artifact hashing (SHA-256)
+\item Run bundle integrity
+\item Replay equivalence
+\end{itemize}
+
+Any mismatch between original and replayed execution results in immediate HALT.
+
+\section{Refusal-First Execution Control}
+
+If continuation cannot be justified, the system must emit a refusal record rather than proceed.
+
+\begin{itemize}
+\item No silent failure
+\item No narrative override
+\item Explicit obstruction documentation
+\end{itemize}
+
+Refusal is treated as a valid and required system outcome.
+
+\section{Language as Telemetry}
+
+Language is not treated as explanation but as a structured signal capable of altering system state. All language inputs must be:
+
+\begin{itemize}
+\item Captured as artifacts
+\item Hash-bound
+\item Replay-tested
+\end{itemize}
+
+This prevents semantic drift and ensures that meaning is tied to verifiable structure.
+
+\section{Conclusion}
+
+The Babylon Continuation framework establishes a deterministic, artifact-first method for governing execution in language-driven systems. By enforcing replay-verifiable evidence and refusal-first control, the system ensures that continuation is granted only when structurally admissible.
+
+Future work includes formal specification of run bundle schemas and integration into distributed execution environments.
+
+\end{document}
