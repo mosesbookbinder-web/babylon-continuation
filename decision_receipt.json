@@ -1,0 +1,37 @@
+{
+  "decision": "INCOMPLETE",
+  "decision_precedence": "HALT > INCOMPLETE > PASS",
+  "artifact": "paper.pdf",
+  "artifact_sha256": "c913b1bfb0f250782cbba3da158cef53f39c1cc316a4cef3e96ad638d32d4c0e",
+  "run_bundle": "/Users/mosesbookbinder/WGA_RUNS/BABYLON_PAPER3_RUN_20260329T071419Z/run_bundle.json",
+  "witness_bundle": {
+    "artifact": "paper.pdf",
+    "artifact_sha256": "c913b1bfb0f250782cbba3da158cef53f39c1cc316a4cef3e96ad638d32d4c0e",
+    "files": [
+      "paper.pdf",
+      "paper.pdf.sha256",
+      "paper.tex",
+      "paper.tex.sha256",
+      "run_bundle.json",
+      "run_bundle.json.sha256",
+      "decision.json",
+      "decision.json.sha256",
+      "decision_receipt.json",
+      "refusal_record.json",
+      "refusal_record.json.sha256",
+      "README.md",
+      "SHA256_MANIFEST.txt",
+      "SHA256_MANIFEST.txt.sha256"
+    ]
+  },
+  "timestamp_utc": "2026-03-29T07:28:47Z",
+  "gate_vector": {
+    "A": 1,
+    "V": 1,
+    "L": 1,
+    "R": 0,
+    "P": 0,
+    "M": 1,
+    "E": 1
+  }
+}
